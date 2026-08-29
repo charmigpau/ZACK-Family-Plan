@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pau Family HQ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Work+Sans:wght@400;500;600;700&family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:#FBF7F1;
+    color:#3A342E;
+    font-family:'Work Sans','Helvetica Neue',Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;}
+  .wrap{max-width:980px;margin:0 auto;padding:0 24px;}
+
+  /* ---------- header ---------- */
+  header.hero{padding:52px 0 28px;}
+  .eyebrow{
+    font-size:0.72rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;
+    color:#8C8378;margin:0 0 12px;
+  }
+  h1{
+    font-family:'Quicksand',sans-serif;font-weight:700;
+    font-size:clamp(1.9rem,4vw,2.6rem);line-height:1.08;margin:0 0 16px;
+    text-wrap:balance;color:#3A342E;
+  }
+  .lede{font-size:1.02rem;line-height:1.6;max-width:64ch;margin:0;color:#3A342E;}
+  .lede strong{color:#33452F;}
+
+  /* ---------- sticky nav ---------- */
+  nav.jump{
+    position:sticky;top:0;z-index:20;
+    background:rgba(251,247,241,0.94);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid #E7DFD3;
+    padding:12px 0;
+    margin-bottom:8px;
+  }
+  nav.jump .wrap{display:flex;gap:6px;flex-wrap:wrap;}
+  nav.jump a{
+    font-family:'Work Sans',sans-serif;font-weight:600;font-size:0.82rem;
+    color:#3A342E;text-decoration:none;padding:8px 14px;border-radius:999px;
+    border:1px solid #E7DFD3;background:#FFFFFF;white-space:nowrap;
+  }
+  nav.jump a:hover,nav.jump a:focus-visible{border-color:#8FA888;outline:none;}
+  nav.jump a:focus-visible{outline:2px solid #3A342E;outline-offset:2px;}
+
+  main{padding-bottom:90px;}
+  section{padding:44px 0 6px;scroll-margin-top:70px;}
+  section + section{border-top:1px solid #E7DFD3;}
+
+  .section-kicker{
+    font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;
+    color:#8C8378;margin:0 0 8px;
+  }
+  h2{
+    font-family:'Quicksand',sans-serif;font-weight:700;font-size:1.55rem;
+    margin:0 0 10px;color:#3A342E;
+  }
+  .section-note{font-size:0.94rem;line-height:1.6;color:#5B5347;max-width:70ch;margin:0 0 26px;}
+
+  /* ---------- callout ---------- */
+  .callout{
+    background:#F6E4DC;border-radius:16px;padding:18px 20px;margin:0 0 28px;
+    font-size:0.92rem;line-height:1.55;color:#5C2E22;
+  }
+  .callout strong{display:block;font-family:'Quicksand',sans-serif;font-weight:700;font-size:0.95rem;margin-bottom:8px;color:#5C2E22;}
+  .callout ul{margin:0;padding-left:20px;}
+  .callout li{margin-bottom:5px;}
+
+  /* ---------- master week rows (pastel) ---------- */
+  .standing-note{
+    display:flex;gap:20px;flex-wrap:wrap;
+    background:#FFFFFF;border:1px solid #E7DFD3;border-radius:16px;
+    padding:16px 20px;margin:0 0 24px;font-size:0.86rem;color:#5B5347;
+  }
+  .standing-note b{color:#3A342E;}
+
+  .week-card{background:#FFFFFF;border:1px solid #E7DFD3;border-radius:22px;
+    box-shadow:0 1px 2px rgba(58,52,46,0.04),0 8px 24px -12px rgba(58,52,46,0.16);
+    padding:8px 26px 6px;}
+  .day-row{padding:18px 0;border-bottom:1px solid #E7DFD3;}
+  .day-row:last-child{border-bottom:none;}
+  .day-row-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:6px;}
+  .day-name{font-family:'Quicksand',sans-serif;font-weight:700;font-size:1.05rem;}
+  .day-body{font-size:0.92rem;line-height:1.55;color:#3A342E;}
+  .tagrow{margin-top:8px;display:flex;flex-wrap:wrap;gap:6px;}
+  .tag{
+    display:inline-flex;align-items:center;font-family:'Work Sans',sans-serif;
+    font-size:0.72rem;font-weight:600;padding:4px 11px;border-radius:12px;
+  }
+  .tag.grandpa{background:#D9E4D6;color:#33452F;}
+  .tag.avis{background:#E3A896;color:#5C2E22;}
+  .tag.grandma{background:#7FA0BE;color:#FFFFFF;}
+  .tag.reca{background:#E0B23E;color:#4A3A0C;}
+  .tag.you{background:#8FA888;color:#FFFFFF;}
+  .tag.kent{background:#3A342E;color:#FFFFFF;}
+  .flagline{
+    margin-top:10px;font-size:0.82rem;line-height:1.5;color:#7A3C29;
+    background:#FBF0EA;padding:9px 12px;border-radius:10px;
+  }
+  .footnote{padding:16px 0 20px;font-size:0.86rem;color:#8C8378;line-height:1.5;}
+
+  /* ---------- kid pages (bold & playful, scoped) ---------- */
+  .kid-page{
+    --k-bg:#FFFBF2; --k-surface:#FFFFFF; --k-ink:#26314B; --k-muted:#6C7590;
+    --k-line:#EAE1C8; --k-coral:#FF6B5B; --k-sky:#4FB6E8; --k-sun:#FFC93C; --k-grass:#59B287;
+    background:var(--k-bg);border:3px solid var(--k-ink);border-radius:28px;
+    padding:28px 26px 22px;box-shadow:0 6px 0 0 var(--k-line);
+    font-family:'Nunito',sans-serif;color:var(--k-ink);
+  }
+  .kid-page .kid-eyebrow{
+    font-family:'Nunito',sans-serif;font-weight:800;font-size:0.72rem;
+    letter-spacing:0.1em;text-transform:uppercase;color:var(--k-muted);margin:0 0 4px;
+  }
+  .kid-page h3{
+    font-family:'Baloo 2',sans-serif;font-weight:800;font-size:1.9rem;margin:0 0 2px;color:var(--k-ink);
+  }
+  .kid-page .kid-sub{font-size:0.94rem;color:var(--k-muted);margin:0 0 6px;font-weight:600;}
+  .kid-page .bus-pill{
+    display:inline-flex;align-items:center;gap:8px;margin-top:10px;
+    background:var(--k-sun);border:2px solid var(--k-ink);border-radius:999px;
+    padding:7px 16px;font-weight:800;font-size:0.86rem;
+  }
+  .kid-page .day-strip{margin-top:22px;display:flex;flex-direction:column;gap:12px;}
+  .kid-day{
+    background:var(--k-surface);border:2px solid var(--k-ink);border-radius:18px;
+    padding:14px 18px;
+  }
+  .kid-day .kd-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;}
+  .kid-day .kd-name{font-family:'Baloo 2',sans-serif;font-weight:700;font-size:1.08rem;}
+  .kid-day .kd-badge{
+    font-family:'Nunito',sans-serif;font-weight:800;font-size:0.7rem;text-transform:uppercase;
+    padding:4px 10px;border-radius:999px;border:2px solid var(--k-ink);
+  }
+  .kid-day .kd-badge.pe{background:var(--k-sky);color:#0B3348;}
+  .kid-day .kd-badge.swim{background:var(--k-coral);color:#fff;}
+  .kid-day .kd-badge.rest{background:var(--k-grass);color:#0D3323;}
+  .kid-day p{margin:4px 0 0;font-size:0.9rem;line-height:1.5;}
+  .kid-page .bag-label{
+    font-family:'Nunito',sans-serif;font-weight:800;font-size:0.68rem;text-transform:uppercase;
+    letter-spacing:0.05em;color:var(--k-muted);margin:10px 0 4px;display:flex;align-items:center;gap:5px;
+  }
+  .kid-page .bag-label:first-of-type{margin-top:8px;}
+  .kid-bring{list-style:none;margin:2px 0 0;padding:0;display:flex;flex-direction:column;gap:5px;}
+  .kid-bring li{display:flex;gap:8px;align-items:flex-start;font-size:0.86rem;line-height:1.4;font-weight:600;}
+  .kid-bring li::before{content:"";flex:none;width:10px;height:10px;border-radius:50%;
+    background:var(--k-sun);border:2px solid var(--k-ink);margin-top:4px;}
+  .kid-page .kid-footnote{margin-top:18px;font-size:0.84rem;color:var(--k-muted);font-weight:600;line-height:1.5;}
+  .kid-page .kid-callout{
+    margin-top:16px;background:#FFF0C2;border:2px dashed #6B4B00;color:#6B4B00;
+    border-radius:16px;padding:12px 14px;font-size:0.86rem;font-weight:700;line-height:1.5;
+  }
+
+  /* ---------- grown-ups table ---------- */
+  table.grownups{width:100%;border-collapse:collapse;background:#FFFFFF;border-radius:18px;overflow:hidden;
+    border:1px solid #E7DFD3;box-shadow:0 1px 2px rgba(58,52,46,0.04);}
+  table.grownups th,table.grownups td{text-align:left;padding:13px 16px;font-size:0.88rem;border-bottom:1px solid #E7DFD3;}
+  table.grownups th{font-family:'Work Sans',sans-serif;font-weight:700;font-size:0.72rem;letter-spacing:0.06em;
+    text-transform:uppercase;color:#8C8378;background:#F3EEE6;}
+  table.grownups tr:last-child td{border-bottom:none;}
+  table.grownups td.name{font-weight:700;color:#3A342E;}
+
+  /* ---------- lunch plan ---------- */
+  .lunch-grid{width:100%;border-collapse:collapse;background:#FFFFFF;border-radius:18px;overflow:hidden;
+    border:1px solid #E7DFD3;font-size:0.86rem;}
+  .lunch-grid th,.lunch-grid td{padding:11px 14px;border-bottom:1px solid #E7DFD3;text-align:left;}
+  .lunch-grid th{background:#F3EEE6;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.06em;color:#8C8378;}
+  .lunch-grid tr:last-child td{border-bottom:none;}
+  .lunch-badge{display:inline-block;font-weight:700;font-size:0.78rem;padding:4px 11px;border-radius:10px;}
+  .lunch-badge.pack{background:#D9E4D6;color:#33452F;}
+  .lunch-badge.order{background:#F6E4DC;color:#7A3C29;}
+  .lunch-how{background:#FFFFFF;border:1px solid #E7DFD3;border-radius:16px;padding:18px 20px;margin-top:20px;font-size:0.9rem;line-height:1.6;}
+  .lunch-how b{color:#33452F;}
+
+  /* ---------- key dates ---------- */
+  .datelist{list-style:none;margin:0;padding:0;background:#FFFFFF;border:1px solid #E7DFD3;border-radius:18px;overflow:hidden;}
+  .datelist li{display:flex;gap:16px;padding:12px 18px;border-bottom:1px solid #E7DFD3;font-size:0.88rem;}
+  .datelist li:last-child{border-bottom:none;}
+  .datelist .dl-date{flex:none;width:120px;font-weight:700;color:#3A342E;font-variant-numeric:tabular-nums;}
+  .datelist .dl-what{color:#5B5347;}
+  .hedge{font-size:0.83rem;color:#8C8378;font-style:italic;margin:14px 0 0;}
+
+  /* ---------- copy block ---------- */
+  .copy-block{
+    background:#2E2A24;color:#F3EEE6;border-radius:18px;padding:24px 26px;
+    font-family:'Work Sans',sans-serif;font-size:0.86rem;line-height:1.7;
+    white-space:pre-wrap;
+  }
+  .copy-block .cb-h{color:#E3A896;font-weight:700;display:block;margin:16px 0 4px;}
+  .copy-block .cb-h:first-child{margin-top:0;}
+
+  footer.end{padding:50px 0 10px;text-align:center;font-size:0.82rem;color:#8C8378;}
+
+  @media (max-width:640px){
+    .datelist .dl-date{width:90px;}
+  }
+
+  @media print{
+    nav.jump{display:none;}
+    section{page-break-before:always;border-top:none;padding-top:20px;}
+    header.hero{page-break-before:auto;}
+    body{background:#fff;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Pau Family · Fall Term 2026</p>
+    <h1>Everyone's Week, One Place</h1>
+    <p class="lede">Built from what you sent — Zachary's real timetable, Auggie's school hours, and your caregiver rotation. Master week and the grown-ups' pages stay in your <strong>soft pastel</strong>; Zachary's and Auggie's own pages are <strong>bold &amp; playful</strong> so they can read them without you. Scroll down for all of it, or jump straight to a section.</p>
+  </div>
+</header>
+
+<nav class="jump" aria-label="Jump to section">
+  <div class="wrap">
+    <a href="#master">Master Week</a>
+    <a href="#zachary">Zachary</a>
+    <a href="#auggie">Auggie</a>
+    <a href="#grownups">Grown-Ups</a>
+    <a href="#reca">Reca</a>
+    <a href="#lunch">Lunch Plan</a>
+    <a href="#dates">Key Dates</a>
+    <a href="#setup">Set It Up in Claude</a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ============ MASTER WEEK ============ -->
+  <section id="master">
+    <div class="wrap">
+      <p class="section-kicker">01 · Whole household</p>
+      <h2>Our Week</h2>
+      <p class="section-note">Zachary — Grade 1, YK Pao School, out 3:15pm. Auggie — R1, HKIS, out 2:00pm. This is the one page that goes on the fridge; every page below is built from it.</p>
+
+      <div class="standing-note">
+        <span><b>To school:</b> Auggie's bus 6:30am · Zachary's bus 7:20am</span>
+        <span><b>Home:</b> Auggie's bus 2:45pm · Zachary's bus 3:45pm</span>
+        <span><b>Reca:</b> on standby every day</span>
+        <span><b>Unless:</b> it's a school holiday or early-dismissal day — see Key Dates below</span>
+      </div>
+
+      <div class="week-card">
+        <div class="day-row">
+          <div class="day-row-head"><span class="day-name">Monday</span></div>
+          <div class="day-body">Auggie's bus home 2:45, Zachary's 3:45 — PE kit for Zachary today. Both boys swim 4:15–5:15.</div>
+          <div class="tagrow"><span class="tag grandpa">Grandpa Pau</span><span class="tag avis">Avis</span></div>
+        </div>
+        <div class="day-row">
+          <div class="day-row-head"><span class="day-name">Tuesday</span></div>
+          <div class="day-body">Auggie's bus home 2:45, Zachary's 3:45 — no PE. Zachary ice skating 5:00–5:30.</div>
+          <div class="tagrow"><span class="tag avis">Avis</span></div>
+        </div>
+        <div class="day-row">
+          <div class="day-row-head"><span class="day-name">Wednesday</span></div>
+          <div class="day-body">Auggie's bus home 2:45, Zachary's 3:45 — PE kit for Zachary today. Nothing after school for either boy.</div>
+          <div class="tagrow"><span class="tag grandma">Grandma Connie</span><span class="tag reca">Reca</span></div>
+        </div>
+        <div class="day-row">
+          <div class="day-row-head"><span class="day-name">Thursday</span></div>
+          <div class="day-body">Auggie's bus home 2:45. Zachary's OT is 3:45–4:30.</div>
+          <div class="tagrow"><span class="tag grandma">Grandma Connie</span><span class="tag reca">Reca</span></div>
+        </div>
+        <div class="day-row">
+          <div class="day-row-head"><span class="day-name">Friday</span></div>
+          <div class="day-body">Auggie's bus home 2:45, Zachary's 3:45. Loosest weekday — nothing after school.</div>
+          <div class="tagrow"><span class="tag grandpa">Grandpa Pau</span><span class="tag you">Charming</span></div>
+        </div>
+        <div class="day-row">
+          <div class="day-row-head"><span class="day-name">Saturday</span></div>
+          <div class="day-body">Both boys, art class together, 10:15–11:30.</div>
+          <div class="tagrow"><span class="tag you">Charming</span><span class="tag kent">Kent</span></div>
+        </div>
+        <div class="day-row">
+          <div class="day-row-head"><span class="day-name">Sunday</span></div>
+          <div class="day-body">Both boys, taekwondo together, 10:30–11:30.</div>
+          <div class="tagrow"><span class="tag you">Charming</span><span class="tag kent">Kent</span></div>
+        </div>
+      </div>
+      <p class="footnote">Nice detail worth keeping: both weekend activities already have the boys together — one drop-off, one pickup, both kids.</p>
+    </div>
+  </section>
+
+  <!-- ============ ZACHARY ============ -->
+  <section id="zachary">
+    <div class="wrap">
+      <p class="section-kicker">02 · His own page</p>
+      <h2>Zachary's Week</h2>
+      <p class="section-note">Bold &amp; playful, meant for his room or the back of his door — built so he can check it himself.</p>
+
+      <div class="kid-page">
+        <p class="kid-eyebrow">Age 6.5 · Grade 1 · YK Pao School</p>
+        <h3>Zachary's Week</h3>
+        <p class="kid-sub">School ends 3:15pm every day</p>
+        <span class="bus-pill">🚌 Morning bus 7:20am · Home bus 3:45pm</span>
+
+        <div class="kid-callout">Every school day, your school bag needs a labeled water bottle. Add your lunch box too, only on days the Lunch Plan says "Pack."</div>
+
+        <div class="day-strip">
+          <div class="kid-day">
+            <div class="kd-head"><span class="kd-name">Monday</span><span class="kd-badge pe">PE today</span></div>
+            <p>Bring your PE kit &amp; sneakers to school. Bus home at 3:45, then swimming 4:15–5:15, with Auggie!</p>
+            <p class="bag-label">🎒 School bag</p>
+            <ul class="kid-bring"><li>PE kit &amp; sneakers</li></ul>
+            <p class="bag-label">👜 Activity bag</p>
+            <ul class="kid-bring"><li>Swimsuit, goggles, towel</li></ul>
+          </div>
+          <div class="kid-day">
+            <div class="kd-head"><span class="kd-name">Tuesday</span><span class="kd-badge swim">Skating</span></div>
+            <p>No PE today. Bus home at 3:45, then ice skating 5:00–5:30.</p>
+            <p class="bag-label">👜 Activity bag</p>
+            <ul class="kid-bring"><li>Warm layer &amp; gloves for the rink</li></ul>
+          </div>
+          <div class="kid-day">
+            <div class="kd-head"><span class="kd-name">Wednesday</span><span class="kd-badge pe">PE today</span></div>
+            <p>Bring your PE kit &amp; sneakers. Bus home at 3:45 — nothing else today.</p>
+            <p class="bag-label">🎒 School bag</p>
+            <ul class="kid-bring"><li>PE kit &amp; sneakers</li></ul>
+          </div>
+          <div class="kid-day">
+            <div class="kd-head"><span class="kd-name">Thursday</span><span class="kd-badge swim">OT day</span></div>
+            <p>No PE. OT is 3:45–4:30.</p>
+            <p class="bag-label">👜 Activity bag</p>
+            <ul class="kid-bring"><li>Snack ready to eat on the way</li></ul>
+          </div>
+          <div class="kid-day">
+            <div class="kd-head"><span class="kd-name">Friday</span><span class="kd-badge rest">Easy day</span></div>
+            <p>No PE. Bus home at 3:45 — your loosest day!</p>
+          </div>
+          <div class="kid-day">
+            <div class="kd-head"><span class="kd-name">Saturday</span><span class="kd-badge rest">Art</span></div>
+            <p>Art class 10:15–11:30, with Auggie.</p>
+            <p class="bag-label">👜 Activity bag</p>
+            <ul class="kid-bring"><li>Old shirt or smock, if you don't want paint on your clothes</li></ul>
+          </div>
+          <div class="kid-day">
+            <div class="kd-head"><span class="kd-name">Sunday</span><span class="kd-badge rest">Taekwondo</span></div>
+            <p>Taekwondo 10:30–11:30, with Auggie.</p>
+            <p class="bag-label">👜 Activity bag</p>
+            <ul class="kid-bring"><li>Dobok (uniform)</li><li>Water bottle</li></ul>
+          </div>
+        </div>
+        <p class="kid-footnote">Printed for his room. Update it the moment swimming or skating moves.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AUGGIE ============ -->
+  <section id="auggie">
+    <div class="wrap">
+      <p class="section-kicker">03 · His own page</p>
+      <h2>Auggie's Week</h2>
+      <p class="section-note">Same bold &amp; playful treatment, sized for a 4.5 year old to recognize — pictures and short lines over long sentences.</p>
+
+      <div class="kid-page">
+        <p class="kid-eyebrow">Age 4.5 · R1 · HKIS</p>
+        <h3>Auggie's Week</h3>
+        <p class="kid-sub">School ends 2:00pm every day</p>
+        <span class="bus-pill">🚌 Morning bus 6:30am · Home bus 2:45pm</span>
+
+        <div class="kid-callout">HKIS specials (PE, Chinese, Music) rotate on their own Day 1–6 cycle — see the HKIS calendar for which Day it is. Your school bag every day: backpack, labeled water bottle, one labeled spare outfit — and your lunch box too, on any day the Lunch Plan says "Pack."</div>
+
+        <div class="day-strip">
+          <div class="kid-day">
+            <div class="kd-head"><span class="kd-name">Monday</span><span class="kd-badge swim">Swim</span></div>
+            <p>Bus home 2:45. Swimming 4:15–5:15 — with big brother Zachary!</p>
+            <p class="bag-label">👜 Activity bag</p>
+            <ul class="kid-bring"><li>Swimsuit, goggles, towel</li></ul>
+          </div>
+          <div class="kid-day">
+            <div class="kd-head"><span class="kd-name">Tuesday – Friday</span><span class="kd-badge rest">School only</span></div>
+            <p>Bus home 2:45. Nothing scheduled after school.</p>
+          </div>
+          <div class="kid-day">
+            <div class="kd-head"><span class="kd-name">Saturday</span><span class="kd-badge rest">Art</span></div>
+            <p>Art class 10:15–11:30, with Zachary.</p>
+            <p class="bag-label">👜 Activity bag</p>
+            <ul class="kid-bring"><li>Old shirt or smock, if you want one</li></ul>
+          </div>
+          <div class="kid-day">
+            <div class="kd-head"><span class="kd-name">Sunday</span><span class="kd-badge rest">Taekwondo</span></div>
+            <p>Taekwondo 10:30–11:30, with Zachary.</p>
+            <p class="bag-label">👜 Activity bag</p>
+            <ul class="kid-bring"><li>Dobok (uniform)</li><li>Water bottle</li></ul>
+          </div>
+        </div>
+        <p class="kid-footnote">Printed for his room. Update it the moment swimming or another activity moves.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GROWN-UPS ============ -->
+  <section id="grownups">
+    <div class="wrap">
+      <p class="section-kicker">04 · At a glance</p>
+      <h2>Grown-Ups at a Glance</h2>
+      <p class="section-note">Who's on and which days. Reca gets her own operational page next, since she runs the most weekday hours.</p>
+
+      <table class="grownups">
+        <thead><tr><th>Who</th><th>On</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td class="name">Grandpa Pau</td><td>Mon, Fri</td><td>Paired with Avis (Mon) or Charming (Fri)</td></tr>
+          <tr><td class="name">Avis</td><td>Mon, Tue</td><td>Solo on Tuesday — both boys' bus-homes plus the skating run</td></tr>
+          <tr><td class="name">Grandma Connie</td><td>Wed, Thu</td><td>Paired with Reca both days</td></tr>
+          <tr><td class="name">Reca</td><td>Wed, Thu + standby daily</td><td>Primary weekday operator — see her page below</td></tr>
+          <tr><td class="name">Charming (you)</td><td>Fri, Sat, Sun</td><td>Backstop for everything, every day</td></tr>
+          <tr><td class="name">Kent</td><td>Sat, Sun</td><td>Weekend co-parent</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ RECA ============ -->
+  <section id="reca">
+    <div class="wrap">
+      <p class="section-kicker">05 · For your helper</p>
+      <h2>Reca's Week</h2>
+      <p class="section-note">Only her part — printable, or saved to her phone.</p>
+
+      <div class="week-card">
+        <div class="day-row">
+          <div class="day-row-head"><span class="day-name">Wednesday</span><span class="tag reca" style="margin-left:auto;">On, with Grandma Connie</span></div>
+          <div class="day-body">Auggie's bus home 2:45, Zachary's 3:45 — PE kit for Zachary today. Nothing after school for either boy.</div>
+        </div>
+        <div class="day-row">
+          <div class="day-row-head"><span class="day-name">Thursday</span><span class="tag reca" style="margin-left:auto;">On, with Grandma Connie</span></div>
+          <div class="day-body">Auggie's bus home 2:45. Zachary's OT is 3:45–4:30.</div>
+        </div>
+        <div class="day-row">
+          <div class="day-row-head"><span class="day-name">Every other day</span></div>
+          <div class="day-body">You're on standby — Charming will text if you're needed to cover.</div>
+        </div>
+      </div>
+      <p class="footnote"><b>Lunch:</b> check the Lunch Plan below each time Charming sends the new month — it tells you exactly which days to pack and which are ordered. <b>If plans change:</b> text Charming, don't wait to be asked.</p>
+    </div>
+  </section>
+
+  <!-- ============ LUNCH ============ -->
+  <section id="lunch">
+    <div class="wrap">
+      <p class="section-kicker">06 · The tricky part</p>
+      <h2>Lunch Plan — September 2026</h2>
+      <p class="section-note"><b>Zachary:</b> ordered every school day in September — nothing for Reca to pack. <b>Auggie</b> is the one that varies, straight from your order-history calendar: a dot on the date means it's ordered, no dot means Reca packs it.</p>
+
+      <table class="lunch-grid">
+        <thead><tr><th>Date</th><th>Day</th><th>Auggie</th></tr></thead>
+        <tbody>
+          <tr><td>Sep 1</td><td>Tue</td><td><span class="lunch-badge order">Order</span></td></tr>
+          <tr><td>Sep 2</td><td>Wed</td><td><span class="lunch-badge pack">Pack</span></td></tr>
+          <tr><td>Sep 3</td><td>Thu</td><td><span class="lunch-badge order">Order</span></td></tr>
+          <tr><td>Sep 4</td><td>Fri</td><td><span class="lunch-badge order">Order</span></td></tr>
+          <tr><td>Sep 7</td><td>Mon</td><td><span class="lunch-badge pack">Pack</span></td></tr>
+          <tr><td>Sep 8</td><td>Tue</td><td><span class="lunch-badge pack">Pack</span></td></tr>
+          <tr><td>Sep 9</td><td>Wed</td><td><span class="lunch-badge order">Order</span></td></tr>
+          <tr><td>Sep 10</td><td>Thu</td><td><span class="lunch-badge order">Order</span></td></tr>
+          <tr><td>Sep 11</td><td>Fri</td><td><span class="lunch-badge order">Order</span></td></tr>
+          <tr><td>Sep 14</td><td>Mon</td><td><span class="lunch-badge pack">Pack</span></td></tr>
+          <tr><td>Sep 15</td><td>Tue</td><td><span class="lunch-badge pack">Pack</span></td></tr>
+          <tr><td>Sep 16</td><td>Wed</td><td><span class="lunch-badge pack">Pack</span> — early dismissal day at HKIS</td></tr>
+          <tr><td>Sep 17</td><td>Thu</td><td><span class="lunch-badge order">Order</span></td></tr>
+          <tr><td>Sep 18</td><td>Fri</td><td><span class="lunch-badge pack">Pack</span></td></tr>
+          <tr><td>Sep 21</td><td>Mon</td><td><span class="lunch-badge order">Order</span></td></tr>
+          <tr><td>Sep 22</td><td>Tue</td><td><span class="lunch-badge order">Order</span></td></tr>
+          <tr><td>Sep 23</td><td>Wed</td><td><span class="lunch-badge pack">Pack</span></td></tr>
+          <tr><td>Sep 24</td><td>Thu</td><td><span class="lunch-badge order">Order</span></td></tr>
+          <tr><td>Sep 25</td><td>Fri</td><td><span class="lunch-badge order">Order</span></td></tr>
+          <tr><td>Sep 28</td><td>Mon</td><td><span class="lunch-badge order">Order</span></td></tr>
+          <tr><td>Sep 29</td><td>Tue</td><td><span class="lunch-badge pack">Pack</span></td></tr>
+          <tr><td>Sep 30</td><td>Wed</td><td><span class="lunch-badge pack">Pack</span></td></tr>
+        </tbody>
+      </table>
+      <p class="footnote" style="padding-top:4px;">10 pack days for Auggie this month (2, 7, 8, 14, 15, 16, 18, 23, 29, 30) · 12 ordered (1, 3, 4, 9, 10, 11, 17, 21, 22, 24, 25, 28).</p>
+
+      <div class="lunch-how">
+        <b>To update it each month:</b> open the order-history calendar in the food app, screenshot it, and tell your Claude Project which dates have dots. It rebuilds this grid — no need to type out every date by hand — and you print or send it to Reca, ideally with a week or two to spare before the new month starts.
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ KEY DATES ============ -->
+  <section id="dates">
+    <div class="wrap">
+      <p class="section-kicker">07 · Worth double-checking</p>
+      <h2>Key Dates</h2>
+      <p class="section-note">Now both boys' calendars are in. Auggie's dates below are read off a compact HKIS calendar image; Zachary's come straight from YK Pao's own typed (and self-labeled "provisional") calendar, so those are the more certain of the two.</p>
+
+      <p class="section-kicker" style="margin-top:4px;">Auggie · HKIS</p>
+      <ul class="datelist">
+        <li><span class="dl-date">Sep 16</span><span class="dl-what">Early dismissal</span></li>
+        <li><span class="dl-date">Oct 1</span><span class="dl-what">Public holiday</span></li>
+        <li><span class="dl-date">Oct 19–23</span><span class="dl-what">Fall break, no school</span></li>
+        <li><span class="dl-date">Nov 4</span><span class="dl-what">Early dismissal</span></li>
+        <li><span class="dl-date">Nov 11–13</span><span class="dl-what">Parent conferences — check if early dismissal applies</span></li>
+        <li><span class="dl-date">Dec 21 – Jan 1</span><span class="dl-what">Winter break, no school</span></li>
+        <li><span class="dl-date">Jan 20</span><span class="dl-what">Early dismissal</span></li>
+        <li><span class="dl-date">Feb (CNY week)</span><span class="dl-what">Chinese New Year break — exact dates worth re-checking</span></li>
+        <li><span class="dl-date">Late Mar – Apr</span><span class="dl-what">Spring break, no school</span></li>
+        <li><span class="dl-date">Apr 20</span><span class="dl-what">Early dismissal</span></li>
+        <li><span class="dl-date">Jun 16</span><span class="dl-what">Last day of school, early dismissal</span></li>
+      </ul>
+      <p class="hedge">Read off a compact calendar image, not the source text — worth a quick double-check before you print anything for the caregivers.</p>
+
+      <p class="section-kicker" style="margin-top:28px;">Zachary · YK Pao</p>
+      <ul class="datelist">
+        <li><span class="dl-date">Aug 21</span><span class="dl-what">First day of school</span></li>
+        <li><span class="dl-date">Sep 26</span><span class="dl-what">Holiday, day after Mid-Autumn Festival</span></li>
+        <li><span class="dl-date">Oct 1</span><span class="dl-what">National Day, public holiday</span></li>
+        <li><span class="dl-date">Oct 19–23</span><span class="dl-what">Mid-term holiday, no school for students</span></li>
+        <li><span class="dl-date">Nov 10</span><span class="dl-what">Founders' Day (Sir YK Pao's Birthday)</span></li>
+        <li><span class="dl-date">Dec 18 – Jan 1</span><span class="dl-what">Christmas / New Year holiday</span></li>
+        <li><span class="dl-date">Jan 4</span><span class="dl-what">First day of 2nd semester</span></li>
+        <li><span class="dl-date">Feb 1–12</span><span class="dl-what">Winter holiday, including Lunar New Year (Feb 4–6)</span></li>
+        <li><span class="dl-date">Mar 26 – Apr 5</span><span class="dl-what">Tomb Sweeping Day &amp; Spring Break</span></li>
+        <li><span class="dl-date">Apr 6</span><span class="dl-what">First day of 3rd semester</span></li>
+        <li><span class="dl-date">May 1</span><span class="dl-what">Labor Day holiday</span></li>
+        <li><span class="dl-date">May 13</span><span class="dl-what">Buddha's Birthday</span></li>
+        <li><span class="dl-date">Jun 9</span><span class="dl-what">Dragon Boat Festival</span></li>
+        <li><span class="dl-date">Jun 25</span><span class="dl-what">Last school day</span></li>
+      </ul>
+      <p class="hedge">YK Pao's own calendar lists no early-dismissal days for the year — every day off above is a full closure, not a half day. It's also explicitly marked "provisional" by the school, so worth a glance before it's final.</p>
+    </div>
+  </section>
+
+  <!-- ============ SETUP ============ -->
+  <section id="setup">
+    <div class="wrap">
+      <p class="section-kicker">08 · Keep it alive</p>
+      <h2>Set It Up in Claude</h2>
+      <p class="section-note">This page is the snapshot. For the ongoing version — the one where you say "swimming moved to 4pm" and it tells you what breaks — start a Claude Project called <b>Family Logistics</b> and paste this into the project instructions.</p>
+
+      <div class="copy-block">
+<span class="cb-h">Who's who</span>
+Charming: mom, needs to know everything, every day. Backstop.
+Kent: dad, weekend caregiver (Sat, Sun).
+Reca: helper, on Wed &amp; Thu, standby every other day. Primary weekday operator.
+Grandma Connie: caregiver, Wed &amp; Thu.
+Grandpa Pau: caregiver, Mon &amp; Fri.
+Avis: caregiver, Mon &amp; Tue.
+Zachary: age 6.5, Grade 1, YK Pao School, school ends 3:15pm, home bus 3:45pm. Activities: swimming Mon 4:15-5:15pm, ice skating Tue 5:00-5:30pm, OT Thu 3:45-4:30pm, art Sat 10:15-11:30am, taekwondo Sun 10:30-11:30am.
+Auggie: age 4.5, R1, HKIS, school ends 2:00pm, home bus 2:45pm. Activities: swimming Mon 4:15-5:15pm (with Zachary), art Sat 10:15-11:30am (with Zachary), taekwondo Sun 10:30-11:30am (with Zachary).
+
+<span class="cb-h">The standing week</span>
+Mornings: Auggie's bus at 6:30am, Zachary's bus at 7:20am. Afternoons: Auggie's bus home at 2:45pm, Zachary's at 3:45pm. Except on a school holiday or early-dismissal day — check the school calendar first.
+Monday: Grandpa Pau &amp; Avis.
+Tuesday: Avis alone.
+Wednesday: Grandma Connie &amp; Reca.
+Thursday: Grandma Connie &amp; Reca. Zachary's OT is 3:45-4:30.
+Friday: Grandpa Pau &amp; Charming.
+Saturday &amp; Sunday: Charming &amp; Kent, both boys together.
+Who takes which boy on a two-caregiver day doesn't need spelling out — the family already knows.
+Lunch: Zachary is ordered every school day. Auggie's is irregular, set from the food app's order-history calendar (a dot = ordered, no dot = Reca packs) about 1-2 weeks before each new month, then sent to Reca.
+
+<span class="cb-h">How to answer me</span>
+Whenever I ask a scheduling question or drop a new date, event, cancellation, or change, answer in this order:
+1. What it affects. Which kid, which day, which existing plan it touches.
+2. Who needs to know. Name them. Only flag people actually impacted.
+3. The conflict, if any. If two pickups collide or a caregiver is double-booked, say that first and loudest.
+4. The fix. Propose who covers what — a real recommendation, not a list of options, unless it's genuinely a toss-up.
+5. Updated pages. Offer to regenerate whichever pages the change touches (master week, a kid's page, a caregiver's page, or the lunch grid) so nothing goes stale.
+
+<span class="cb-h">Tone</span>
+Talk to me like a person. Be direct and tell me the truth. If a plan is fragile or a handoff is tight, say so. Skip the caveats. I want a sharp second brain that catches the thing I missed at 6am.
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="end">Pau Family HQ · both school calendars are in, Thursday's sorted — this is your current, fridge-ready week.</footer>
+
+</body>
+</html>
