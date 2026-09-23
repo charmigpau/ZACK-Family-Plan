@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reca's Week — Pau Family</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:#FBF7F1;
+    color:#3A342E;
+    font-family:'Work Sans','Helvetica Neue',Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:640px;margin:0 auto;padding:0 22px;}
+
+  header.hero{padding:44px 0 24px;}
+  .eyebrow{
+    font-size:0.72rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;
+    color:#8C8378;margin:0 0 12px;
+  }
+  h1{
+    font-family:'Quicksand',sans-serif;font-weight:700;
+    font-size:clamp(1.7rem,6vw,2.2rem);line-height:1.1;margin:0 0 14px;color:#3A342E;
+  }
+  .lede{font-size:1rem;line-height:1.6;margin:0;color:#3A342E;}
+
+  main{padding-bottom:70px;}
+  section{padding:32px 0 6px;}
+  section + section{border-top:1px solid #E7DFD3;}
+
+  .section-kicker{
+    font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;
+    color:#8C8378;margin:0 0 8px;
+  }
+  h2{
+    font-family:'Quicksand',sans-serif;font-weight:700;font-size:1.35rem;
+    margin:0 0 10px;color:#3A342E;
+  }
+  .section-note{font-size:0.92rem;line-height:1.6;color:#5B5347;margin:0 0 22px;}
+
+  .week-card{background:#FFFFFF;border:1px solid #E7DFD3;border-radius:22px;
+    box-shadow:0 1px 2px rgba(58,52,46,0.04),0 8px 24px -12px rgba(58,52,46,0.16);
+    padding:8px 22px 6px;}
+  .day-row{padding:16px 0;border-bottom:1px solid #E7DFD3;}
+  .day-row:last-child{border-bottom:none;}
+  .day-row-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:6px;justify-content:space-between;}
+  .day-name{font-family:'Quicksand',sans-serif;font-weight:700;font-size:1.02rem;}
+  .day-body{font-size:0.9rem;line-height:1.55;color:#3A342E;}
+  .tag{
+    display:inline-flex;align-items:center;font-family:'Work Sans',sans-serif;
+    font-size:0.72rem;font-weight:600;padding:4px 11px;border-radius:12px;
+    background:#E0B23E;color:#4A3A0C;white-space:nowrap;
+  }
+  .tag.sandwich{background:#F6E4DC;color:#7A3C29;}
+  .tag.board{background:#E0B23E;color:#4A3A0C;}
+  .tag.dip{background:#D9E4D6;color:#33452F;}
+  .tag.thermos{background:#7FA0BE;color:#FFFFFF;}
+  .tag.choice{background:#3A342E;color:#FFFFFF;}
+  .footnote{padding:14px 0 6px;font-size:0.85rem;color:#8C8378;line-height:1.55;}
+  .footnote b{color:#3A342E;}
+
+  .prep-list{background:#FFFFFF;border:1px solid #E7DFD3;border-radius:16px;padding:16px 20px;margin:18px 0 22px;font-size:0.88rem;line-height:1.6;color:#3A342E;}
+  .prep-list ul{margin:8px 0 0;padding-left:20px;}
+  .prep-list li{margin-bottom:6px;}
+  .job-card{background:#FFFFFF;border:1px solid #E7DFD3;border-radius:16px;padding:16px 20px;margin-bottom:14px;}
+  .job-card:last-child{margin-bottom:0;}
+  .job-card .job-name{font-family:'Quicksand',sans-serif;font-weight:700;font-size:1rem;color:#3A342E;margin:0 0 6px;}
+  .job-card ol{margin:0;padding-left:20px;font-size:0.88rem;line-height:1.6;color:#3A342E;}
+  .job-card p{margin:0;font-size:0.88rem;line-height:1.6;color:#3A342E;}
+
+  .standing-note{
+    background:#FFFFFF;border:1px solid #E7DFD3;border-radius:16px;
+    padding:14px 18px;margin:0 0 22px;font-size:0.85rem;color:#5B5347;line-height:1.6;
+  }
+  .standing-note b{color:#3A342E;}
+
+  .callout{
+    background:#F6E4DC;border-radius:16px;padding:18px 20px;margin:0 0 4px;
+    font-size:0.9rem;line-height:1.55;color:#5C2E22;
+  }
+  .callout strong{display:block;font-family:'Quicksand',sans-serif;font-weight:700;font-size:0.95rem;margin-bottom:8px;color:#5C2E22;}
+  .callout ul{margin:0;padding-left:20px;}
+  .callout li{margin-bottom:5px;}
+  .callout b{color:#3A342E;}
+
+  .lunch-grid{width:100%;border-collapse:collapse;background:#FFFFFF;border-radius:18px;overflow:hidden;
+    border:1px solid #E7DFD3;font-size:0.85rem;}
+  .lunch-grid th,.lunch-grid td{padding:10px 12px;border-bottom:1px solid #E7DFD3;text-align:left;}
+  .lunch-grid th{background:#F3EEE6;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.06em;color:#8C8378;}
+  .lunch-grid tr:last-child td{border-bottom:none;}
+  .lunch-badge{display:inline-block;font-weight:700;font-size:0.76rem;padding:4px 11px;border-radius:10px;}
+  .lunch-badge.pack{background:#D9E4D6;color:#33452F;}
+  .lunch-badge.order{background:#F6E4DC;color:#7A3C29;}
+  .lunch-badge.none{background:#E7DFD3;color:#5B5347;}
+
+  .datelist{list-style:none;margin:0;padding:0;background:#FFFFFF;border:1px solid #E7DFD3;border-radius:18px;overflow:hidden;}
+  .datelist li{display:flex;gap:14px;padding:11px 16px;border-bottom:1px solid #E7DFD3;font-size:0.86rem;}
+  .datelist li:last-child{border-bottom:none;}
+  .datelist .dl-date{flex:none;width:105px;font-weight:700;color:#3A342E;}
+  .datelist .dl-what{color:#5B5347;}
+
+  footer.end{padding:44px 0 10px;text-align:center;font-size:0.8rem;color:#8C8378;}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Pau Family · Fall Term 2026</p>
+    <h1>Reca's Week</h1>
+    <p class="lede">Just your part — your days, and the lunch plan for September. Charming will send an updated lunch list about 1–2 weeks before each new month.</p>
+  </div>
+</header>
+
+<main>
+
+  <div class="wrap" style="padding-top:32px;">
+    <div class="callout">
+      <strong>Coming up — Thu, Sep 24: Auggie's swimming</strong>
+      <ul>
+        <li>Only Auggie is swimming today, <b>3:30–4:30pm</b>.</li>
+        <li>You'll go <b>straight to swimming from school pickup</b> — no stop home first.</li>
+        <li>Bring his <b>swimming stuff</b> with you to the pickup.</li>
+        <li>Bring an <b>extra snack</b> for him to eat at the clubhouse.</li>
+      </ul>
+      <p style="margin:10px 0 0;font-size:0.82rem;color:#8C8378;">Also this week, not on your days: a family dinner Fri Sep 25 evening.</p>
+    </div>
+  </div>
+
+  <section id="reca">
+    <div class="wrap">
+      <p class="section-kicker">Your days</p>
+      <h2>Wednesday &amp; Thursday, plus standby</h2>
+
+      <div class="week-card">
+        <div class="day-row">
+          <div class="day-row-head"><span class="day-name">Wednesday</span><span class="tag">With Grandma Connie</span></div>
+          <div class="day-body">Auggie's bus home 2:45, Zachary's 3:45 — PE kit for Zachary today. Nothing after school for either boy.</div>
+        </div>
+        <div class="day-row">
+          <div class="day-row-head"><span class="day-name">Thursday</span><span class="tag">With Grandma Connie</span></div>
+          <div class="day-body">Auggie's bus home 2:45. Zachary's OT is 3:45–4:30.</div>
+        </div>
+        <div class="day-row">
+          <div class="day-row-head"><span class="day-name">Every other day</span></div>
+          <div class="day-body">You're on standby — Charming will text if you're needed to cover.</div>
+        </div>
+      </div>
+      <p class="footnote"><b>If plans change:</b> text Charming, don't wait to be asked.</p>
+    </div>
+  </section>
+
+  <section id="lunch">
+    <div class="wrap">
+      <p class="section-kicker">The tricky part</p>
+      <h2>Lunch Plan — September 2026</h2>
+      <div class="standing-note">
+        <b>Zachary:</b> ordered every school day this month — nothing to pack for him.<br>
+        <b>Auggie:</b> varies day to day — check the table below. "Pack" means his lunch box needs to be ready before the morning bus at 6:30am.
+      </div>
+
+      <table class="lunch-grid">
+        <thead><tr><th>Date</th><th>Day</th><th>Auggie</th></tr></thead>
+        <tbody>
+          <tr><td>Sep 1</td><td>Tue</td><td><span class="lunch-badge order">Order</span></td></tr>
+          <tr><td>Sep 2</td><td>Wed</td><td><span class="lunch-badge pack">Pack</span></td></tr>
+          <tr><td>Sep 3</td><td>Thu</td><td><span class="lunch-badge order">Order</span></td></tr>
+          <tr><td>Sep 4</td><td>Fri</td><td><span class="lunch-badge order">Order</span></td></tr>
+          <tr><td>Sep 7</td><td>Mon</td><td><span class="lunch-badge pack">Pack</span></td></tr>
+          <tr><td>Sep 8</td><td>Tue</td><td><span class="lunch-badge pack">Pack</span></td></tr>
+          <tr><td>Sep 9</td><td>Wed</td><td><span class="lunch-badge order">Order</span></td></tr>
+          <tr><td>Sep 10</td><td>Thu</td><td><span class="lunch-badge order">Order</span></td></tr>
+          <tr><td>Sep 11</td><td>Fri</td><td><span class="lunch-badge order">Order</span></td></tr>
+          <tr><td>Sep 14</td><td>Mon</td><td><span class="lunch-badge pack">Pack</span></td></tr>
+          <tr><td>Sep 15</td><td>Tue</td><td><span class="lunch-badge pack">Pack</span></td></tr>
+          <tr><td>Sep 16</td><td>Wed</td><td><span class="lunch-badge none">No lunch needed</span> — early dismissal, home by 11:30am</td></tr>
+          <tr><td>Sep 17</td><td>Thu</td><td><span class="lunch-badge order">Order</span></td></tr>
+          <tr><td>Sep 18</td><td>Fri</td><td><span class="lunch-badge pack">Pack</span></td></tr>
+          <tr><td>Sep 21</td><td>Mon</td><td><span class="lunch-badge order">Order</span></td></tr>
+          <tr><td>Sep 22</td><td>Tue</td><td><span class="lunch-badge order">Order</span></td></tr>
+          <tr><td>Sep 23</td><td>Wed</td><td><span class="lunch-badge pack">Pack</span></td></tr>
+          <tr><td>Sep 24</td><td>Thu</td><td><span class="lunch-badge order">Order</span></td></tr>
+          <tr><td>Sep 25</td><td>Fri</td><td><span class="lunch-badge order">Order</span></td></tr>
+          <tr><td>Sep 28</td><td>Mon</td><td><span class="lunch-badge order">Order</span></td></tr>
+          <tr><td>Sep 29</td><td>Tue</td><td><span class="lunch-badge pack">Pack</span></td></tr>
+          <tr><td>Sep 30</td><td>Wed</td><td><span class="lunch-badge pack">Pack</span></td></tr>
+        </tbody>
+      </table>
+      <p class="footnote">10 pack days this month (2, 7, 8, 14, 15, 16, 18, 23, 29, 30) · 12 ordered days.</p>
+    </div>
+  </section>
+
+  <section id="boxsystem">
+    <div class="wrap">
+      <p class="section-kicker">New this term</p>
+      <h2>Build-Your-Own Lunch Box</h2>
+      <p class="section-note">Only on days marked <b>Pack</b> above — ordered days need nothing from you. Right now that's Auggie's pack days; Zachary's are all ordered this month. Everything's batch-prepped over the weekend, so your morning job is just handing them their bin — ready by 6am, no reheating (thermos is fine for anything warm).</p>
+
+      <div class="week-card">
+        <div class="day-row">
+          <div class="day-row-head"><span class="day-name">Monday</span><span class="tag sandwich">Sandwich Day</span></div>
+          <div class="day-body">Sandwich (pre-made) + a packed fruit + a packed veggie.</div>
+        </div>
+        <div class="day-row">
+          <div class="day-row-head"><span class="day-name">Tuesday</span><span class="tag board">Board Day</span></div>
+          <div class="day-body">Crackers + cheese or another protein + a packed fruit, pre-portioned into one container.</div>
+        </div>
+        <div class="day-row">
+          <div class="day-row-head"><span class="day-name">Wednesday</span><span class="tag dip">Dip Day</span></div>
+          <div class="day-body">A dip (hummus, yogurt) + dippers (veggie sticks, pita, crackers) + a packed fruit.</div>
+        </div>
+        <div class="day-row">
+          <div class="day-row-head"><span class="day-name">Thursday</span><span class="tag thermos">Thermos Day</span></div>
+          <div class="day-body">Something warm in the thermos (soup, noodles, rice) + a packed fruit or veggie.</div>
+        </div>
+        <div class="day-row">
+          <div class="day-row-head"><span class="day-name">Friday</span><span class="tag choice">Dealer's Choice</span></div>
+          <div class="day-body">Whatever's left in the prepped bins — nothing new to make.</div>
+        </div>
+      </div>
+      <p class="footnote">Starter foods for now — Charming will swap these for the boys' real favorites soon.</p>
+
+      <div class="prep-list">
+        <b>Prepped over the weekend, in labeled bins in the fridge</b> — you shouldn't need to cook anything on a school morning, just pull the day's bin and hand it over.
+      </div>
+
+      <div class="job-card">
+        <p class="job-name">Zachary — builds his own box</p>
+        <ol>
+          <li>Grabs his lunch box</li>
+          <li>Adds that day's labeled bin from the fridge</li>
+          <li>Picks his own fruit or veggie</li>
+          <li>Zips in his water bottle</li>
+          <li>Into the backpack</li>
+        </ol>
+      </div>
+      <div class="job-card">
+        <p class="job-name">Auggie — one small choice</p>
+        <p>Let him pick ONE thing from the snack bin (banana, grapes, or clementine) — everything else, you've already packed.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="dates">
+    <div class="wrap">
+      <p class="section-kicker">Worth knowing</p>
+      <h2>No School / Early Dismissal — Coming Up</h2>
+      <p class="section-note">No bus, no lunch to pack, on any of these days. Double-check with Charming before assuming.</p>
+      <ul class="datelist">
+        <li><span class="dl-date">Sep 26</span><span class="dl-what">Holiday — YK Pao (Zachary), day after Mid-Autumn Festival</span></li>
+        <li><span class="dl-date">Oct 1</span><span class="dl-what">Public holiday — both schools</span></li>
+        <li><span class="dl-date">Oct 19–23</span><span class="dl-what">Both schools closed — HKIS fall break, YK Pao mid-term</span></li>
+        <li><span class="dl-date">Nov 4</span><span class="dl-what">Early dismissal — HKIS (Auggie)</span></li>
+        <li><span class="dl-date">Nov 10</span><span class="dl-what">Holiday — YK Pao (Zachary), Founders' Day</span></li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="end">Pau Family HQ · your page, kept up to date by Charming.</footer>
+
+</body>
+</html>
